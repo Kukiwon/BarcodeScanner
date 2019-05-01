@@ -68,7 +68,8 @@ public final class MessageViewController: UIViewController {
       animations: ({ [weak self] in
         self?.blurView.effect = UIBlurEffect(style: blurStyle)
       }),
-      completion: ({ [weak self] _ in
+      completion: ({ [weak self] didAnimate in
+        guard didAnimate else { return }
         self?.animate(blurStyle: blurStyle == .light ? .extraLight : .light)
       }))
   }
