@@ -93,7 +93,8 @@ public final class MessageViewController: UIViewController {
       animations: ({ [weak self] in
         self?.borderView.transform = CGAffineTransform(rotationAngle: borderViewAngle)
       }),
-      completion: ({ [weak self] _ in
+      completion: ({ [weak self] didAnimate in
+        guard didAnimate else { return }
         self?.animate(borderViewAngle: borderViewAngle + CGFloat(Double.pi / 2))
       }))
   }
